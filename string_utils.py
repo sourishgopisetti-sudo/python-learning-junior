@@ -7,9 +7,11 @@ def count_vowels(s):
     vowels = "aeiouAEIOU"
     return sum(1 for char in s if char in vowels)
 
+import string
+
 def is_palindrome(s):
-    """Check if the input string is a palindrome (ignoring case and spaces)."""
-    cleaned = s.replace(" ", "").lower()
+    """Check if the input string is a palindrome (ignoring case, spaces, and punctuation)."""
+    cleaned = "".join(char.lower() for char in s if char not in string.punctuation and char != " ")
     return cleaned == cleaned[::-1]
 
 if __name__ == "__main__":
